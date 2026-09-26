@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMC — A Meme Coin | Now Showing on Robinhood Chain</title>
+  <meta name="description" content="AMC is A Meme Coin. Not a stock. A sold-out Robinhood Chain premiere. Grab your seat before the lights go down." />
+  <meta name="theme-color" content="#E31837" />
+  <link rel="icon" href="logo.jpg" />
+  <meta property="og:title" content="AMC — A Meme Coin" />
+  <meta property="og:description" content="Now showing on Robinhood Chain. No utility. All cinema." />
+  <meta property="og:image" content="banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amc: {
+              red: "#E31837",
+              dark: "#8B0E22",
+              neon: "#FF2A2A",
+              gold: "#F5C518",
+              cream: "#F4E8C1",
+              black: "#070505",
+            },
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', "sans-serif"],
+            cine: ['Oswald', "sans-serif"],
+            sans: ['Inter', "system-ui", "sans-serif"],
+          },
+          dropShadow: {
+            neon: "0 0 18px rgba(227,24,55,0.85)",
+            gold: "0 0 12px rgba(245,197,24,0.65)",
+          },
+          animation: {
+            marquee: "marquee 32s linear infinite",
+            flicker: "flicker 3.2s ease-in-out infinite",
+            pulseGlow: "pulseGlow 2.4s ease-in-out infinite",
+            floaty: "floaty 6s ease-in-out infinite",
+            bulb: "bulb 1.15s ease-in-out infinite",
+          },
+          keyframes: {
+            marquee: {
+              "0%": { transform: "translateX(0)" },
+              "100%": { transform: "translateX(-50%)" },
+            },
+            flicker: {
+              "0%, 19%, 21%, 100%": { opacity: "1" },
+              "20%": { opacity: "0.72" },
+              "80%": { opacity: "0.9" },
+            },
+            pulseGlow: {
+              "0%, 100%": { boxShadow: "0 0 0 0 rgba(227,24,55,0.55)" },
+              "50%": { boxShadow: "0 0 28px 6px rgba(227,24,55,0.35)" },
+            },
+            floaty: {
+              "0%, 100%": { transform: "translateY(0) rotate(-4deg)" },
+              "50%": { transform: "translateY(-16px) rotate(3deg)" },
+            },
+            bulb: {
+              "0%, 100%": { opacity: "1", filter: "brightness(1.2)" },
+              "50%": { opacity: "0.35", filter: "brightness(0.6)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #070505; }
+    ::selection { background: #E31837; color: #fff; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #E31837; border-radius: 99px; }
+
+    .grain::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 70;
+      opacity: 0.09;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>");
+    }
+
+    .vignette::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 60;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%);
+    }
+
+    .filmstrip {
+      height: 42px;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid #2a1a1a;
+      border-bottom: 1px solid #2a1a1a;
+    }
+    .filmstrip::before,
+    .filmstrip::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 9px;
+      background: repeating-linear-gradient(90deg, #0d0d0d 0 11px, #e6c86a 11px 22px);
+      animation: strip 1.2s linear infinite;
+    }
+    .filmstrip::before { top: 5px; }
+    .filmstrip::after { bottom: 5px; }
+    @keyframes strip {
+      from { background-position: 0 0; }
+      to { background-position: 22px 0; }
+    }
+
+    .neon-red {
+      text-shadow: 0 0 8px #ff3b3b, 0 0 22px #E31837, 0 0 48px rgba(227,24,55,0.7);
+    }
+    .neon-gold {
+      text-shadow: 0 0 8px #ffe08a, 0 0 18px rgba(245,197,24,0.7);
+    }
+
+    .ticket {
+      background: linear-gradient(180deg, #f8edd4 0%, #e4d0a0 100%);
+      position: relative;
+    }
+    .ticket::before,
+    .ticket::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 28px;
+      height: 28px;
+      background: #0b0b0b;
+      border-radius: 999px;
+      transform: translateY(-50%);
+    }
+    .ticket::before { left: -14px; }
+    .ticket::after { right: -14px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    .blend-pop {
+      mix-blend-mode: screen;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+  </style>
+</head>
+<body class="grain vignette font-sans text-zinc-100 antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div id="bulbs" class="hidden md:flex items-center justify-between px-3 py-1.5 bg-black"></div>
+    <div class="flex items-center justify-between gap-4 px-4 md:px-8 py-3 bg-black/70 backdrop-blur-md border-b border-white/10">
+      <a href="#top" class="flex items-center gap-3 group">
+        <img src="logo.jpg" alt="AMC logo" class="w-12 h-12 rounded-full ring-2 ring-amc-red/80 group-hover:ring-amc-gold transition shadow-[0_0_18px_rgba(227,24,55,0.55)]" />
+        <div class="leading-none">
+          <div class="font-display text-3xl tracking-wide neon-red">AMC</div>
+          <div class="font-cine text-[10px] tracking-[0.35em] text-amc-gold uppercase">A Meme Coin</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 font-cine uppercase tracking-[0.22em] text-sm text-zinc-300">
+        <a href="#about" class="hover:text-amc-gold transition">About</a>
+        <a href="#tokenomics" class="hover:text-amc-gold transition">Tokenomics</a>
+        <a href="#tickets" class="hover:text-amc-gold transition">How to Buy</a>
+        <a href="#showtimes" class="hover:text-amc-gold transition">Roadmap</a>
+        <a href="#faq" class="hover:text-amc-gold transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/AMEMECOIN_portal" class="hidden sm:block w-9 h-9 rounded-full overflow-hidden border border-white/15 hover:scale-110 transition" title="Telegram">
+          <img src="tg.png" alt="Telegram" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://x.com/AMEMECOIN_x" class="hidden sm:block w-9 h-9 rounded-full overflow-hidden border border-white/15 hover:scale-110 transition bg-black" title="X">
+          <img src="x.png" alt="X" class="w-full h-full object-cover" />
+        </a>
+        <a href="#tickets" class="hidden sm:inline-flex items-center bg-amc-red hover:bg-red-600 text-white font-cine uppercase tracking-[0.18em] text-sm px-4 py-2 rounded-sm animate-pulseGlow">
+          Get Tickets
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 grid place-items-center border border-white/20 rounded-sm" aria-label="Open menu">
+          <span class="block w-5 h-0.5 bg-white mb-1"></span>
+          <span class="block w-5 h-0.5 bg-white mb-1"></span>
+          <span class="block w-5 h-0.5 bg-white"></span>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden bg-black/95 border-b border-white/10 px-6 py-6 space-y-4 font-cine uppercase tracking-[0.22em]">
+      <a href="#about" class="block hover:text-amc-gold">About</a>
+      <a href="#tokenomics" class="block hover:text-amc-gold">Tokenomics</a>
+      <a href="#tickets" class="block hover:text-amc-gold">How to Buy</a>
+      <a href="#showtimes" class="block hover:text-amc-gold">Roadmap</a>
+      <a href="#faq" class="block hover:text-amc-gold">FAQ</a>
+      <a href="#tickets" class="inline-flex bg-amc-red px-4 py-2">Get Tickets</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative min-h-screen flex items-end">
+    <img src="banner.png" alt="AMC theater marquee — A Meme Coin" class="absolute inset-0 w-full h-full object-cover object-center" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40"></div>
+
+    <img src="popcorn.jpg" alt="" aria-hidden="true" class="blend-pop hidden md:block absolute right-[-2%] bottom-8 w-[280px] lg:w-[360px] xl:w-[420px] pointer-events-none select-none animate-floaty drop-shadow-2xl" />
+
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-16 pt-40">
+      <div class="inline-flex items-center gap-2 border border-amc-gold/40 bg-black/50 backdrop-blur px-3 py-1 mb-5">
+        <span class="w-2 h-2 rounded-full bg-amc-red animate-pulse"></span>
+        <span class="font-cine text-amc-gold tracking-[0.35em] text-xs uppercase">Now Showing</span>
+        <span class="text-zinc-500 text-xs">•</span>
+        <span class="font-cine text-zinc-300 tracking-[0.2em] text-xs uppercase">Robinhood Chain • Screen 1</span>
+      </div>
+
+      <h1 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] neon-red animate-flicker">
+        A MEME COIN
+      </h1>
+      <p class="mt-4 max-w-xl text-lg md:text-xl text-zinc-200 font-medium">
+        They said the movies were dead. We bought the theater, the popcorn, <em>and</em> the chain.
+        Lights down. Phones out. Ape in.
+      </p>
+
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2 bg-black/70 border border-white/15 px-3 py-2 rounded-sm backdrop-blur max-w-full">
+          <span class="font-cine text-[10px] tracking-[0.3em] text-amc-gold">CA</span>
+          <code id="caText" class="text-xs sm:text-sm text-zinc-200 truncate max-w-[46vw] sm:max-w-md">TBA</code>
+          <button id="copyBtn" class="text-[11px] font-cine tracking-widest uppercase bg-amc-red/90 hover:bg-amc-red px-2 py-1 rounded-sm">Copy</button>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a href="#tickets" class="inline-flex items-center justify-center bg-amc-red hover:bg-red-600 text-white font-cine uppercase tracking-[0.22em] px-6 py-3 text-sm md:text-base shadow-[0_0_24px_rgba(227,24,55,0.55)]">
+          Buy $AMC
+        </a>
+        <button id="trailerBtn" class="inline-flex items-center justify-center border border-amc-gold text-amc-gold hover:bg-amc-gold hover:text-black font-cine uppercase tracking-[0.22em] px-6 py-3 text-sm md:text-base transition">
+          ▶ Watch Trailer
+        </button>
+        <div class="ml-1 flex items-center gap-3 text-xs font-cine tracking-[0.2em] uppercase text-zinc-400">
+          <span class="border border-white/30 px-2 py-1 leading-tight text-center">
+            <span class="block text-[9px] text-zinc-500">Rated</span>
+            <span class="block text-lg text-white">D</span>
+            <span class="block text-[9px]">Degen</span>
+          </span>
+          <span>Runtime: Forever</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="overflow-hidden bg-black border-y border-amc-red/40">
+    <div class="flex w-max animate-marquee font-display tracking-[0.28em] text-xl md:text-2xl text-amc-gold py-3">
+      <span class="px-6">NOW SHOWING</span><span class="text-amc-red">✦</span>
+      <span class="px-6">$AMC</span><span class="text-amc-red">✦</span>
+      <span class="px-6">A MEME COIN</span><span class="text-amc-red">✦</span>
+      <span class="px-6">SOLD OUT</span><span class="text-amc-red">✦</span>
+      <span class="px-6">0% TAX</span><span class="text-amc-red">✦</span>
+      <span class="px-6">LP LOCKED</span><span class="text-amc-red">✦</span>
+      <span class="px-6">FAIR LAUNCH</span><span class="text-amc-red">✦</span>
+      <span class="px-6">ROBINHOOD CHAIN</span><span class="text-amc-red">✦</span>
+      <span class="px-6">NO UTILITY ALL CINEMA</span><span class="text-amc-red">✦</span>
+      <span class="px-6">DIAMOND SEATS</span><span class="text-amc-red">✦</span>
+      <span class="px-6">NOW SHOWING</span><span class="text-amc-red">✦</span>
+      <span class="px-6">$AMC</span><span class="text-amc-red">✦</span>
+      <span class="px-6">A MEME COIN</span><span class="text-amc-red">✦</span>
+      <span class="px-6">SOLD OUT</span><span class="text-amc-red">✦</span>
+      <span class="px-6">0% TAX</span><span class="text-amc-red">✦</span>
+      <span class="px-6">LP LOCKED</span><span class="text-amc-red">✦</span>
+      <span class="px-6">FAIR LAUNCH</span><span class="text-amc-red">✦</span>
+      <span class="px-6">ROBINHOOD CHAIN</span><span class="text-amc-red">✦</span>
+      <span class="px-6">NO UTILITY ALL CINEMA</span><span class="text-amc-red">✦</span>
+      <span class="px-6">DIAMOND SEATS</span><span class="text-amc-red">✦</span>
+    </div>
+  </div>
+  <div class="filmstrip" aria-hidden="true"></div>
+
+  <!-- BOX OFFICE STATS -->
+  <section class="relative py-16 md:py-20 bg-amc-black">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase text-center mb-8">Weekend Box Office</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="reveal border border-white/10 bg-white/5 p-5 text-center">
+          <div class="font-display text-4xl md:text-5xl text-white" data-count="1000000000" data-suffix="">1B</div>
+          <div class="mt-1 font-cine tracking-[0.25em] text-[11px] uppercase text-zinc-400">Total Supply</div>
+        </div>
+        <div class="reveal border border-white/10 bg-white/5 p-5 text-center">
+          <div class="font-display text-4xl md:text-5xl text-amc-gold">0%</div>
+          <div class="mt-1 font-cine tracking-[0.25em] text-[11px] uppercase text-zinc-400">Tax / Intermission</div>
+        </div>
+        <div class="reveal border border-white/10 bg-white/5 p-5 text-center">
+          <div class="font-display text-4xl md:text-5xl text-amc-red">100%</div>
+          <div class="mt-1 font-cine tracking-[0.25em] text-[11px] uppercase text-zinc-400">Community Cut</div>
+        </div>
+        <div class="reveal border border-white/10 bg-white/5 p-5 text-center">
+          <div class="font-display text-4xl md:text-5xl text-white">∞</div>
+          <div class="mt-1 font-cine tracking-[0.25em] text-[11px] uppercase text-zinc-400">Runtime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative py-20 md:py-28 overflow-hidden">
+    <img src="cinema.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-35" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+    <div class="relative max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">Feature Presentation</p>
+        <h2 class="font-display text-5xl md:text-7xl leading-none neon-red">Not a stock.<br />A screening.</h2>
+        <p class="mt-6 text-zinc-300 text-lg leading-relaxed">
+          AMC is <strong class="text-white">A Meme Coin</strong> — a Robinhood Chain premiere for people who still believe in popcorn, neon, and life-changing candles.
+          No board of directors. No 200-page whitepaper. Just a sold-out house and a chart that refuses to sit down.
+        </p>
+        <p class="mt-4 text-zinc-400 leading-relaxed">
+          They closed the theaters. We opened a coin. Fair launch on an Ethereum L2, ownership renounced, LP locked with last night’s unsold Junior Mints.
+          The only sequel that matters is the one on your PnL.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span class="border border-amc-gold/50 text-amc-gold font-cine tracking-[0.2em] text-xs uppercase px-3 py-1">Fair Launch</span>
+          <span class="border border-white/20 text-zinc-300 font-cine tracking-[0.2em] text-xs uppercase px-3 py-1">Renounced</span>
+          <span class="border border-white/20 text-zinc-300 font-cine tracking-[0.2em] text-xs uppercase px-3 py-1">LP Locked</span>
+          <span class="border border-white/20 text-zinc-300 font-cine tracking-[0.2em] text-xs uppercase px-3 py-1">Robinhood Chain</span>
+        </div>
+      </div>
+      <div class="reveal relative">
+        <img src="banner.png" alt="AMC marquee" class="w-full rounded-sm shadow-[0_20px_80px_rgba(227,24,55,0.35)] ring-1 ring-amc-red/40" />
+        <img src="filmreel.jpg" alt="" aria-hidden="true" class="blend-pop hidden sm:block absolute -bottom-10 -left-10 w-40 md:w-52 pointer-events-none" />
+        <div class="absolute -top-5 -right-2 bg-black/80 border border-amc-gold px-3 py-2">
+          <p class="font-cine text-[10px] tracking-[0.3em] text-amc-gold uppercase">Audience Score</p>
+          <p class="font-display text-4xl text-white leading-none">100%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="filmstrip" aria-hidden="true"></div>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics" class="relative py-20 md:py-28 bg-[#0b0b0b]">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12 reveal">
+        <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">Concessions</p>
+        <h2 class="font-display text-5xl md:text-7xl neon-red">Tokenomics</h2>
+        <p class="mt-3 text-zinc-400">The box office split. Simple. Brutal. Delicious.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">Admit One</p>
+          <h3 class="font-display text-4xl mt-1">1,000,000,000</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">$AMC Supply</p>
+          <p class="mt-3 text-sm text-zinc-700">One billion tickets printed. That’s the whole run. No director’s recut.</p>
+        </article>
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">No Intermission</p>
+          <h3 class="font-display text-4xl mt-1">0% Tax</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">Buy / Sell</p>
+          <p class="mt-3 text-sm text-zinc-700">What you ape is what you keep. The usher does not take a cut.</p>
+        </article>
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">House Rules</p>
+          <h3 class="font-display text-4xl mt-1">LP Locked</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">Ownership Renounced</p>
+          <p class="mt-3 text-sm text-zinc-700">The negatives are sealed. This print cannot be pulled from theaters.</p>
+        </article>
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">Box Office</p>
+          <h3 class="font-display text-4xl mt-1">100%</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">Community</p>
+          <p class="mt-3 text-sm text-zinc-700">No VC skybox. Floor seats only. Everyone watches the same screen.</p>
+        </article>
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">Chain</p>
+          <h3 class="font-display text-4xl mt-1">Robinhood</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">Chain ID 4663</p>
+          <p class="mt-3 text-sm text-zinc-700">Ethereum L2. Gas in ETH. A coin that moves at 24 frames of chaos per second.</p>
+        </article>
+        <article class="ticket reveal p-6 pl-8 text-zinc-900">
+          <p class="font-cine text-[10px] tracking-[0.35em] uppercase text-amc-dark">Utility</p>
+          <h3 class="font-display text-4xl mt-1">Popcorn</h3>
+          <p class="font-cine uppercase tracking-widest text-sm">Vibes &amp; Volume</p>
+          <p class="mt-3 text-sm text-zinc-700">We don’t promise a protocol. We promise a scene. Bring extra butter.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="tickets" class="relative py-20 md:py-28 bg-amc-black">
+    <img src="ticket.jpg" alt="" aria-hidden="true" class="hidden lg:block absolute right-[-4%] top-16 w-72 opacity-80 rotate-12 pointer-events-none select-none" />
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative">
+      <div class="text-center mb-12 reveal">
+        <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">Box Office</p>
+        <h2 class="font-display text-5xl md:text-7xl neon-red">Get Your Tickets</h2>
+        <p class="mt-3 text-zinc-400">Four steps. No line. No 3D glasses required.</p>
+      </div>
+
+      <ol class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <li class="reveal border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-6 hover:border-amc-red/60 transition">
+          <span class="font-display text-5xl text-amc-red">01</span>
+          <h3 class="font-cine uppercase tracking-widest mt-3 text-amc-gold">Wallet</h3>
+          <p class="mt-2 text-zinc-400 text-sm">Install MetaMask, or open Robinhood Wallet. Any EVM wallet works.</p>
+        </li>
+        <li class="reveal border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-6 hover:border-amc-red/60 transition">
+          <span class="font-display text-5xl text-amc-red">02</span>
+          <h3 class="font-cine uppercase tracking-widest mt-3 text-amc-gold">Add the Chain</h3>
+          <p class="mt-2 text-zinc-400 text-sm">Switch to Robinhood Chain (ID 4663) and load ETH for the ticket and the gas.</p>
+        </li>
+        <li class="reveal border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-6 hover:border-amc-red/60 transition">
+          <span class="font-display text-5xl text-amc-red">03</span>
+          <h3 class="font-cine uppercase tracking-widest mt-3 text-amc-gold">Open the Lobby</h3>
+          <p class="mt-2 text-zinc-400 text-sm">Uniswap or hood.fun. Paste the CA. Don’t trust random posters.</p>
+        </li>
+        <li class="reveal border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-6 hover:border-amc-red/60 transition">
+          <span class="font-display text-5xl text-amc-red">04</span>
+          <h3 class="font-cine uppercase tracking-widest mt-3 text-amc-gold">Swap &amp; Sit</h3>
+          <p class="mt-2 text-zinc-400 text-sm">Swap ETH for $AMC. Silence your phone. Diamond-hand through the credits.</p>
+        </li>
+      </ol>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3 reveal">
+        <button id="addChainBtn" type="button" class="bg-amc-red hover:bg-red-600 font-cine uppercase tracking-[0.2em] text-sm px-5 py-3">Add Robinhood Chain</button>
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener" class="border border-white/20 hover:border-amc-gold hover:text-amc-gold font-cine uppercase tracking-[0.2em] text-sm px-5 py-3">Uniswap</a>
+        <a href="https://hood.fun" target="_blank" rel="noopener" class="border border-white/20 hover:border-amc-gold hover:text-amc-gold font-cine uppercase tracking-[0.2em] text-sm px-5 py-3">hood.fun</a>
+        <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener" class="border border-white/20 hover:border-amc-gold hover:text-amc-gold font-cine uppercase tracking-[0.2em] text-sm px-5 py-3">Dexscreener</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="filmstrip" aria-hidden="true"></div>
+
+  <!-- ROADMAP -->
+  <section id="showtimes" class="relative py-20 md:py-28 bg-[#0a0505]">
+    <div class="max-w-5xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12 reveal">
+        <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">Coming Attractions</p>
+        <h2 class="font-display text-5xl md:text-7xl neon-red">Showtimes</h2>
+      </div>
+
+      <div class="border-4 border-amc-red/80 bg-black/80 shadow-[0_0_40px_rgba(227,24,55,0.25)]">
+        <div class="flex justify-between px-2 py-2 bg-black" id="boardBulbs"></div>
+        <div class="px-6 md:px-10 py-8 space-y-8">
+          <div class="reveal">
+            <div class="flex items-baseline justify-between gap-4 border-b border-amc-gold/30 pb-2">
+              <h3 class="font-display text-3xl md:text-4xl text-amc-gold">Act I — The Premiere</h3>
+              <span class="font-cine text-amc-red text-xs tracking-[0.25em] uppercase">Now Showing</span>
+            </div>
+            <p class="mt-3 text-zinc-400">Website. Socials. Fair launch. The marquee lights up and the first bag-holders take their seats.</p>
+          </div>
+          <div class="reveal">
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
+              <h3 class="font-display text-3xl md:text-4xl">Act II — The Blockbuster</h3>
+              <span class="font-cine text-zinc-500 text-xs tracking-[0.25em] uppercase">Coming Soon</span>
+            </div>
+            <p class="mt-3 text-zinc-400">Dexscreener trending. KOL private screening. Meme war. Popcorn flying. Chart doing stunts.</p>
+          </div>
+          <div class="reveal">
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
+              <h3 class="font-display text-3xl md:text-4xl">Act III — The Sequel</h3>
+              <span class="font-cine text-zinc-500 text-xs tracking-[0.25em] uppercase">In Production</span>
+            </div>
+            <p class="mt-3 text-zinc-400">CEX listings. Merch. Community contests. Maybe staking if the director gets ambitious.</p>
+          </div>
+          <div class="reveal">
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
+              <h3 class="font-display text-3xl md:text-4xl">Act IV — The Franchise</h3>
+              <span class="font-cine text-zinc-500 text-xs tracking-[0.25em] uppercase">Rumored</span>
+            </div>
+            <p class="mt-3 text-zinc-400">Hollywood. The moon. Forever credits. AMC isn’t a movie night — it’s the whole multiplex.</p>
+          </div>
+        </div>
+        <div class="flex justify-between px-2 py-2 bg-black" id="boardBulbs2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="py-16 bg-amc-black">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase text-center mb-8">Critics</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <blockquote class="reveal border border-white/10 p-6 bg-white/5">
+          <p class="text-lg text-zinc-200">“Two thumbs and a wallet up. I haven’t left my seat since block zero.”</p>
+          <footer class="mt-4 font-cine text-xs tracking-[0.25em] uppercase text-amc-gold">— Chart Chimp</footer>
+        </blockquote>
+        <blockquote class="reveal border border-white/10 p-6 bg-white/5">
+          <p class="text-lg text-zinc-200">“I laughed. I cried. I aped. The Citizen Kane of clicking buy.”</p>
+          <footer class="mt-4 font-cine text-xs tracking-[0.25em] uppercase text-amc-gold">— Degenerate Times</footer>
+        </blockquote>
+        <blockquote class="reveal border border-white/10 p-6 bg-white/5">
+          <p class="text-lg text-zinc-200">“No plot. No utility. Perfect cinema. Butter on everything.”</p>
+          <footer class="mt-4 font-cine text-xs tracking-[0.25em] uppercase text-amc-gold">— On-Chain Usher</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community" class="relative py-20 md:py-28 overflow-hidden">
+    <img src="banner.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative max-w-3xl mx-auto px-4 text-center reveal">
+      <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">The Audience</p>
+      <h2 class="font-display text-5xl md:text-7xl neon-red">Join the House</h2>
+      <p class="mt-4 text-zinc-300 text-lg">The best seats are in Telegram and on X. Spoilers encouraged. Paper hands will be asked to leave during the trailers.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="https://t.me/AMEMECOIN_portal" class="inline-flex items-center gap-3 bg-[#229ED9] hover:brightness-110 text-white font-cine uppercase tracking-[0.18em] px-6 py-3">
+          <img src="tg.png" alt="" class="w-7 h-7" /> Telegram
+        </a>
+        <a href="https://x.com/AMEMECOIN_x" class="inline-flex items-center gap-3 bg-black border border-white/20 hover:border-white font-cine uppercase tracking-[0.18em] px-6 py-3">
+          <img src="x.png" alt="" class="w-7 h-7" /> Follow on X
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 md:py-28 bg-[#0b0b0b]">
+    <div class="max-w-3xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12 reveal">
+        <p class="font-cine text-amc-gold tracking-[0.4em] text-xs uppercase mb-3">Ask the Usher</p>
+        <h2 class="font-display text-5xl md:text-7xl neon-red">FAQ</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="reveal group border border-white/10 bg-white/5 open:border-amc-red/50">
+          <summary class="cursor-pointer px-5 py-4 font-cine uppercase tracking-[0.18em] flex justify-between items-center">
+            Is this the AMC stock?
+            <span class="text-amc-gold group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-zinc-400">No. This is <strong class="text-white">A Meme Coin</strong>. Completely separate. Same vibes, zero shares, 100% Robinhood Chain degeneracy.</p>
+        </details>
+        <details class="reveal group border border-white/10 bg-white/5 open:border-amc-red/50">
+          <summary class="cursor-pointer px-5 py-4 font-cine uppercase tracking-[0.18em] flex justify-between items-center">
+            What’s the utility?
+            <span class="text-amc-gold group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-zinc-400">Popcorn. Neon. A chart. A community that refuses to go home when the credits roll. If you needed a whitepaper, this is the wrong screening.</p>
+        </details>
+        <details class="reveal group border border-white/10 bg-white/5 open:border-amc-red/50">
+          <summary class="cursor-pointer px-5 py-4 font-cine uppercase tracking-[0.18em] flex justify-between items-center">
+            Is the launch fair?
+            <span class="text-amc-gold group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-zinc-400">Fair launch on Robinhood Chain. Fixed supply, ownership renounced, LP locked. Same ticket price for every seat in the house.</p>
+        </details>
+        <details class="reveal group border border-white/10 bg-white/5 open:border-amc-red/50">
+          <summary class="cursor-pointer px-5 py-4 font-cine uppercase tracking-[0.18em] flex justify-between items-center">
+            When moon?
+            <span class="text-amc-gold group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-zinc-400">During the credits. Stay seated. Throw popcorn if you must. Don’t sell when the jump-scare candle prints.</p>
+        </details>
+        <details class="reveal group border border-white/10 bg-white/5 open:border-amc-red/50">
+          <summary class="cursor-pointer px-5 py-4 font-cine uppercase tracking-[0.18em] flex justify-between items-center">
+            How do I buy?
+            <span class="text-amc-gold group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-zinc-400">Scroll up to Get Your Tickets. Wallet, Robinhood Chain, ETH, swap, sit. Always verify the contract address on the official explorer.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black">
+    <div class="filmstrip" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="logo.jpg" alt="AMC" class="w-12 h-12 rounded-full" />
+        <div>
+          <div class="font-display text-2xl">AMC</div>
+          <div class="font-cine text-[10px] tracking-[0.35em] text-amc-gold uppercase">A Meme Coin</div>
+        </div>
+      </a>
+      <p class="text-xs text-zinc-500 max-w-xl text-center md:text-left">
+        $AMC is a meme coin created for entertainment. Not financial advice, not the AMC stock, not a movie studio.
+        Crypto is volatile. Only ape what you can afford to watch burn like a bad sequel.
+      </p>
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/AMEMECOIN_portal" class="w-9 h-9 rounded-full overflow-hidden border border-white/15"><img src="tg.png" alt="Telegram" class="w-full h-full object-cover" /></a>
+        <a href="https://x.com/AMEMECOIN_x" class="w-9 h-9 rounded-full overflow-hidden border border-white/15 bg-black"><img src="x.png" alt="X" class="w-full h-full object-cover" /></a>
+      </div>
+    </div>
+    <p class="text-center text-[10px] tracking-[0.3em] uppercase text-zinc-600 pb-6 font-cine">© 2026 AMC — A Meme Coin. Now showing on Robinhood Chain.</p>
+  </footer>
+
+  <!-- TRAILER MODAL -->
+  <div id="modal" class="hidden fixed inset-0 z-[80] bg-black/85 backdrop-blur-sm grid place-items-center p-4">
+    <div class="w-full max-w-xl bg-[#111] border border-amc-red/60 shadow-[0_0_60px_rgba(227,24,55,0.35)]">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <span class="font-cine tracking-[0.25em] text-xs uppercase text-amc-gold">Screen 1 • Trailer</span>
+        <button id="closeModal" class="text-zinc-400 hover:text-white text-xl leading-none">×</button>
+      </div>
+      <div class="aspect-video bg-black grid place-items-center relative overflow-hidden">
+        <img src="cinema.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50" />
+        <div class="relative text-center px-6">
+          <p class="font-display text-5xl md:text-6xl neon-red">SOLD OUT</p>
+          <p class="mt-3 text-zinc-200">There is no trailer. You <em>are</em> the movie.</p>
+          <a href="#tickets" id="modalBuy" class="inline-block mt-6 bg-amc-red hover:bg-red-600 font-cine uppercase tracking-[0.2em] text-sm px-5 py-3">Buy $AMC Instead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] hidden bg-amc-red text-white font-cine tracking-[0.2em] uppercase text-xs px-4 py-2 shadow-lg">
+    Copied. See you in the theater.
+  </div>
+
+  <script>
+    const bulbs = (el, n = 28) => {
+      if (!el) return;
+      el.innerHTML = Array.from({ length: n }, (_, i) =>
+        `<span class="inline-block w-2.5 h-2.5 rounded-full bg-amc-gold animate-bulb" style="animation-delay:${(i % 8) * 0.12}s;box-shadow:0 0 8px #F5C518"></span>`
+      ).join("");
+    };
+    bulbs(document.getElementById("bulbs"), 36);
+    bulbs(document.getElementById("boardBulbs"), 22);
+    bulbs(document.getElementById("boardBulbs2"), 22);
+
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("shadow-[0_8px_30px_rgba(0,0,0,0.6)]", window.scrollY > 20);
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+    mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+
+    const toast = document.getElementById("toast");
+    const ROBINHOOD_CHAIN = {
+      chainId: "0x1237",
+      chainName: "Robinhood Chain",
+      nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+      rpcUrls: ["https://rpc.mainnet.chain.robinhood.com"],
+      blockExplorerUrls: ["https://robinhoodchain.blockscout.com"],
+    };
+    document.getElementById("addChainBtn").addEventListener("click", async () => {
+      const provider = window.ethereum;
+      if (!provider) {
+        window.open("https://metamask.io/download/", "_blank", "noopener");
+        return;
+      }
+      try {
+        await provider.request({ method: "wallet_addEthereumChain", params: [ROBINHOOD_CHAIN] });
+        toast.textContent = "Robinhood Chain added. Take your seat.";
+      } catch {
+        toast.textContent = "Could not add the chain. Add it manually in your wallet.";
+      }
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.textContent = "Copied. See you in the theater.";
+      }, 2200);
+    });
+
+    const copyBtn = document.getElementById("copyBtn");
+    const caText = document.getElementById("caText");
+    copyBtn.addEventListener("click", async () => {
+      toast.textContent = "Copied. See you in the theater.";
+      try {
+        await navigator.clipboard.writeText(caText.textContent.trim());
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(caText);
+        const s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      }
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 1800);
+    });
+
+    const modal = document.getElementById("modal");
+    document.getElementById("trailerBtn").addEventListener("click", () => modal.classList.remove("hidden"));
+    document.getElementById("closeModal").addEventListener("click", () => modal.classList.add("hidden"));
+    document.getElementById("modalBuy").addEventListener("click", () => modal.classList.add("hidden"));
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("show"); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
